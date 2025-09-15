@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS & JavaScript Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Bringing Web Pages to Life with CSS & JavaScript</h1>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>🎨 Part 1: CSS-Only Animations</h2>
+            <p>These effects use only CSS for transitions and keyframes.</p>
+            <div class="content-wrapper">
+                <button id="hover-btn">Hover Over Me!</button>
+                <div id="pulse-box">I have a constant pulse</div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>📚 Part 2: JavaScript Functions</h2>
+            <p>Demonstrating scope, parameters, and return values.</p>
+            <div class="content-wrapper">
+                <p>Calculation: 7 + 15 = <span id="calc-result">?</span></p>
+                <button id="scope-btn">Test Scope (Check Console)</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>🎬 Part 3: JavaScript-Triggered Animations</h2>
+            <p>Use JavaScript to dynamically add/remove classes that trigger CSS animations.</p>
+            <div class="content-wrapper">
+                <div id="shake-box" class="box">Click the button to shake me!</div>
+                <button id="shake-btn">Shake the Box</button>
+                <button id="modal-btn">Open Modal</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-container">
+        <div class="modal-content">
+            <span id="close-modal-btn">&times;</span>
+            <h3>Hello from the Modal!</h3>
+            <p>This modal's appearance is controlled by JavaScript, but its sliding animation is pure CSS!</p>
+        </div>
+    </div>
+
+</body>
+</html>

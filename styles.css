@@ -1,0 +1,176 @@
+/* Basic Setup */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1e3a8a;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    flex-basis: 350px;
+    text-align: center;
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #1e3a8a;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.box {
+    width: 200px;
+    height: 60px;
+    display: grid;
+    place-content: center;
+    border-radius: 8px;
+    background-color: #e0e7ff;
+    color: #3730a3;
+}
+
+/* --- PART 1: CSS TRANSITIONS AND ANIMATIONS --- */
+
+/* 1a: CSS Transition on a button */
+#hover-btn {
+    /* The transition property smooths changes over 0.3 seconds */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#hover-btn:hover {
+    background-color: #1d4ed8; /* Darker blue on hover */
+    transform: translateY(-3px) scale(1.05); /* Lifts the button up slightly */
+}
+
+/* 1b: CSS Keyframe Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+    70% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+}
+
+#pulse-box {
+    background-color: #dbeafe;
+    color: #1e40af;
+    /* Applying the animation */
+    animation: pulse 2s infinite;
+}
+
+/* --- PART 3: STYLES FOR JS-TRIGGERED ANIMATIONS --- */
+
+/* 3a: A 'shake' animation state we can add with JS */
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* This class will be added by JavaScript to trigger the animation */
+.shake-animation {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* 3b: Modal styles */
+#modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Hidden by default */
+    visibility: hidden;
+    opacity: 0;
+
+    /* Smooth transition for the fade-in effect */
+    transition: visibility 0.3s, opacity 0.3s ease-in-out;
+}
+
+/* This class is added by JS to show the modal */
+#modal-container.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    transform: translateY(-50px); /* Start slightly up */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* When the modal is shown, the content slides down into place */
+#modal-container.show .modal-content {
+    transform: translateY(0);
+}
+
+
+#close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #9ca3af;
+}
+
+#close-modal-btn:hover {
+    color: #333;
+}
